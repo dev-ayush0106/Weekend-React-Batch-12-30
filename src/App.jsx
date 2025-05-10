@@ -4,6 +4,58 @@ import Hello,{ H, H1 } from "./Class1/Hello";
 import Intro from "./Class1/Intro";
 import New from "./Class2/New";
 import { FaRegHeart } from "react-icons/fa";
+import Form from "./Class3/Form";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./Class3/Routers/Home";
+import Course from "./Class3/Routers/Course";
+import Support from "./Class3/Routers/Support";
+import NotFound from "./Class3/Routers/NotFound";
+import Java from "./Class3/Routers/Java";
+import Python from "./Class3/Routers/Python";
+import Mern from "./Class3/Routers/Mern";
+import UIUX from "./Class3/Routers/UIUX";
+import Student from "./Class3/Routers/Student";
+
+const router=createBrowserRouter([
+  {
+    path:"/",
+    element:<Home/>
+  },
+  {
+    path:"/courses",
+    element:<Course/>,
+    children:[
+      {
+        path:"javafs",
+        element:<Java/>
+      },
+      {
+        path:"pythonfs",
+        element:<Python/>
+      },
+      {
+        path:"mern",
+        element:<Mern/>
+      },
+      {
+        path:"uiux",
+        element:<UIUX/>
+      }
+    ]
+  },
+  {
+    path:"/support",
+    element:<Support/>
+  },
+  {
+    path:"/student/:id",
+    element:<Student/>
+  },
+  {
+    path:"*",
+    element:<NotFound/>
+  }
+])
 
 function App(){
   // let age=22;
@@ -35,27 +87,29 @@ function App(){
 
   // let specs=["Hard-working","Punctual","Innocent","Honest"]
 
-  let [data,setData]=useState(0)
+  // let [data,setData]=useState(0)
 
-  function incCount(){
-    setData(data+1);
-  }
+  // function incCount(){
+  //   setData(data+1);
+  // }
 
-  function decCount(){
-    setData(data-1)
-  }
+  // function decCount(){
+  //   setData(data-1)
+  // }
 
-  function resetCount(){
-    setData(0);
-  }
+  // function resetCount(){
+  //   setData(0);
+  // }
 
 
-  let [status,setStatus]=useState(false);
-  function changeStatus(){
-    setStatus(!status);
-  }
+  // let [status,setStatus]=useState(false);
+  // function changeStatus(){
+  //   setStatus(!status);
+  // }
 
-  let [theme,setTheme]=useState(false);
+  // let [theme,setTheme]=useState(false);
+
+
   return(
     <>
     {/* <h1>Hello Everyone</h1>
@@ -92,7 +146,7 @@ function App(){
     <button onClick={resetCount}>Reset</button> */}
 
     
-<FaRegHeart onClick={changeStatus} style={{fontSize:"3rem"}} className={(status)?"change":""} />
+{/* <FaRegHeart onClick={changeStatus} style={{fontSize:"3rem"}} className={(status)?"change":""} />
     <h1>{(status?"Liked Image":"")}</h1>
 
 
@@ -101,6 +155,16 @@ function App(){
       <h1>Hello Theme</h1>
     </div>
     <button style={(theme)?{backgroundColor:'White',color:'black'}:{backgroundColor:'black',color:'white'}} onClick={()=>{setTheme(!theme)}}>{(theme)?"Dark":"Light"}</button>
+ */}
+
+    {/* form handling , routers */}
+
+    {/* <Form/> */}
+
+    {/* <h1>React Routers</h1> */}
+
+    <RouterProvider router={router}></RouterProvider>
+
     </>
 
   )

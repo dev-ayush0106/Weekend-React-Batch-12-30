@@ -1,0 +1,18 @@
+ul{
+    display:flex;
+    gap: 30px;
+}
+
+ul li{
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.text-c{
+    color: red;
+}

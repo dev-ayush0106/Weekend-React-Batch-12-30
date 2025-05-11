@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './App.css'
+// import './App.css'
 import Hello,{ H, H1 } from "./Class1/Hello";
 import Intro from "./Class1/Intro";
 import New from "./Class2/New";
@@ -15,15 +15,25 @@ import Python from "./Class3/Routers/Python";
 import Mern from "./Class3/Routers/Mern";
 import UIUX from "./Class3/Routers/UIUX";
 import Student from "./Class3/Routers/Student";
+import Navbar from "./Class4/Navbar";
+import UseEffect from "./Class4/UseEffect";
+import Dashboard from "./Class4/Dashboard";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<Home/>
+    element:<>
+    <Navbar/>
+    <Home/>
+    </>
   },
   {
     path:"/courses",
-    element:<Course/>,
+    element:<>
+    <Navbar/>
+    <Course/>
+    </>,
     children:[
       {
         path:"javafs",
@@ -45,7 +55,10 @@ const router=createBrowserRouter([
   },
   {
     path:"/support",
-    element:<Support/>
+    element:<>
+    <Navbar/>
+    <Support/>
+    </>
   },
   {
     path:"/student/:id",
@@ -163,8 +176,13 @@ function App(){
 
     {/* <h1>React Routers</h1> */}
 
-    <RouterProvider router={router}></RouterProvider>
 
+    {/* <RouterProvider router={router}></RouterProvider> */}
+
+    {/* <h1>useEffect Hook</h1>
+    <UseEffect/> */}
+    <Dashboard/>
+    
     </>
 
   )

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 // import './App.css'
 import Hello,{ H, H1 } from "./Class1/Hello";
 import Intro from "./Class1/Intro";
@@ -19,6 +19,9 @@ import Navbar from "./Class4/Navbar";
 import UseEffect from "./Class4/UseEffect";
 import Dashboard from "./Class4/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MainComponent from "./Class5/MainComponent";
+import UseRef from "./Class5/UseRef";
+import Framer from "./Class5/Framer";
 
 const router=createBrowserRouter([
   {
@@ -69,6 +72,8 @@ const router=createBrowserRouter([
     element:<NotFound/>
   }
 ])
+
+export const DataContext=createContext();
 
 function App(){
   // let age=22;
@@ -122,6 +127,12 @@ function App(){
 
   // let [theme,setTheme]=useState(false);
 
+  let info={
+    name:"Nishant",
+    city:"Gur",
+    age:22,
+    course:"MERN"
+  }
 
   return(
     <>
@@ -181,8 +192,15 @@ function App(){
 
     {/* <h1>useEffect Hook</h1>
     <UseEffect/> */}
-    <Dashboard/>
-    
+    {/* <Dashboard/> */}
+      
+      {/* <DataContext.Provider value={info}>
+        <MainComponent/>
+      </DataContext.Provider> */}
+
+      {/* <UseRef/> */}
+        
+      <Framer/>
     </>
 
   )

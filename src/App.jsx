@@ -22,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from "./Class5/MainComponent";
 import UseRef from "./Class5/UseRef";
 import Framer from "./Class5/Framer";
+import UseReducer from "./Class6/UseReducer";
 
 const router=createBrowserRouter([
   {
@@ -201,6 +202,8 @@ function App(){
       {/* <UseRef/> */}
         
       {/* <Framer/> */}
+
+      <UseReducer/>
 
     </>
 

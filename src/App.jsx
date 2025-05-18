@@ -200,7 +200,8 @@ function App(){
 
       {/* <UseRef/> */}
         
-      <Framer/>
+      {/* <Framer/> */}
+
     </>
 
   )

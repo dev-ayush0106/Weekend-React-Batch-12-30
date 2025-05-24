@@ -5,7 +5,7 @@ import Intro from "./Class1/Intro";
 import New from "./Class2/New";
 import { FaRegHeart } from "react-icons/fa";
 import Form from "./Class3/Form";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router";
 import Home from "./Class3/Routers/Home";
 import Course from "./Class3/Routers/Course";
 import Support from "./Class3/Routers/Support";
@@ -17,12 +17,18 @@ import UIUX from "./Class3/Routers/UIUX";
 import Student from "./Class3/Routers/Student";
 import Navbar from "./Class4/Navbar";
 import UseEffect from "./Class4/UseEffect";
-import Dashboard from "./Class4/Dashboard";
+// import Dashboard from "./Class4/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from "./Class5/MainComponent";
 import UseRef from "./Class5/UseRef";
 import Framer from "./Class5/Framer";
 import UseReducer from "./Class6/UseReducer";
+import RootLayout from "./AddtoCart page/components/RootLayout";
+import Cart from "./AddtoCart page/components/Cart";
+import Dashboard1 from "./AddtoCart page/components/Dashboard";
+// import { Provider } from "react-redux";
+// import { store } from "./Class 7 Redux/store";
+// import Content from "./Class 7 Redux/Content";
 
 const router=createBrowserRouter([
   {
@@ -135,6 +141,13 @@ function App(){
     course:"MERN"
   }
 
+  const router=createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<RootLayout/>}>
+      <Route index element={<Dashboard1/>}></Route>
+      <Route path='/cart' element={<Cart/>}></Route>
+    </Route>
+  ))
+
   return(
     <>
     {/* <h1>Hello Everyone</h1>
@@ -203,7 +216,13 @@ function App(){
         
       {/* <Framer/> */}
 
-      <UseReducer/>
+      {/* <UseReducer/> */}
+
+      {/* <Provider store={store}>
+        <Content/>
+      </Provider> */}
+
+        <RouterProvider router={router}></RouterProvider>
 
     </>
 

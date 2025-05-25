@@ -6,10 +6,13 @@ export const cartSlicer=createSlice({
     initialState,
     reducers:{
         add(state,action){
-            return state.push(action.payload)
+            state.push(action.payload)
+        },
+        remove(state,action){
+            return state.filter(item => item.id !== action.payload)
         }
     }
 })
 
-export const {add}=cartSlicer.actions;
+export const {add , remove}=cartSlicer.actions;
 export default cartSlicer.reducer; 

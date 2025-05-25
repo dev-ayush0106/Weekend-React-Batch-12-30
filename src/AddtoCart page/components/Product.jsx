@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useDispatch } from 'react-redux';
+import { add } from '../Store/CartSlicer';
 
 const Product = () => {
 
     // useDispatch : To dispatch any action to slice
     // useSelector : To access the data
-
+    let dispatch=useDispatch();
     let [products, setGetProducts] = useState([]);
     // Data Fetch from api 
     // useEffect case 2 : it run only on first render
@@ -15,6 +17,10 @@ const Product = () => {
             .then((res) => res.json())
             .then((data) => setGetProducts(data));
     }, [])
+
+    function addToCart(p){
+        dispatch(add(p));
+    }
 
     console.log(products);
     // MAP FUNCTION EQUAL TO LOOP
@@ -27,7 +33,7 @@ const Product = () => {
                     <Card.Text>
                         {product.price}
                     </Card.Text>
-                    <Button variant="primary" >Add To Cart</Button>
+                    <Button variant="primary" onClick={()=>{addToCart(product)}}>Add To Cart</Button>
                 </Card.Body>
             </Card>
         </div>

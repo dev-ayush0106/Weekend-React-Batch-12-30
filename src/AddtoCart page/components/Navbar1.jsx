@@ -3,8 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router';
 const Navbar1 = () => {
+    let cartCount=useSelector(state=> state.cart)
+    console.log(cartCount)
     return (
         <div>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -20,7 +23,7 @@ const Navbar1 = () => {
                         <Navbar.Toggle/>
                         <Navbar.Collapse className='justify-content-end'>
                             <Navbar.Text>
-                            <Nav.Link to="/cart" as={Link} href="#action1">My Bag 0</Nav.Link>
+                            <Nav.Link to="/cart" as={Link} href="#action1">My Bag {cartCount.length} </Nav.Link>
 
                             </Navbar.Text>
                         </Navbar.Collapse>
